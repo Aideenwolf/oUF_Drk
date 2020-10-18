@@ -255,6 +255,7 @@ function core.PostUpdateIcon(self, unit, icon, index, offset, filter, isDebuff)
 			if (unitCaster == 'player' or unitCaster == 'vehicle') then
 				icon.icon:SetDesaturated(nil)
 			elseif(not UnitPlayerControlled(unit)) then -- If Unit is Player Controlled don't desaturate debuffs
+				Mixin(icon, BackdropTemplateMixin or {}) -- Testing
 				icon:SetBackdropColor(0, 0, 0)
 				icon.icon:SetDesaturated(1)
 			end
